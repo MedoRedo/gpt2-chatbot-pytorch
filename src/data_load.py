@@ -72,7 +72,8 @@ if __name__=='__main__':
     tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
     
     print("Loading & Merging all datasets...")
-    train_dialogues, valid_dialogues, total_train_utter_num, total_valid_utter_num = merge_data(tokenizer, config['train_frac'])
+    load_blended_skill_talk(tokenizer, config['train_frac'])
+    train_dialogues, valid_dialogues, total_train_utter_num, total_valid_utter_num = load_blended_skill_talk(tokenizer, config['train_frac'])
     
     if not os.path.isdir(config['data_dir']):
         os.mkdir(config['data_dir'])
